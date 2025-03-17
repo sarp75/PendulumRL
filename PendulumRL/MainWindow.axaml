@@ -1,0 +1,42 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="PendulumRL.MainWindow"
+        mc:Ignorable="d"
+        Title="Pendulum RL Visualization" Width="800" Height="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="10" Margin="10">
+            <Button Name="btnReset" Content="Reset"/>
+            <Button Name="btnTrain" Content="Train (100 episodes)"/>
+            <Button Name="btnRun" Content="Run Simulation"/>
+            <TextBlock Name="txtStatus" VerticalAlignment="Center" Margin="10,0"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Pendulum Visualization -->
+            <Canvas Name="pendulumCanvas" Grid.Column="0" Background="LightGray"/>
+
+            <!-- Neural Network Visualization -->
+            <Canvas Name="networkCanvas" Grid.Column="1" Background="WhiteSmoke"/>
+        </Grid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10" Spacing="10">
+            <TextBlock Text="Generation:"/>
+            <TextBlock Name="txtGeneration" Text="0"/>
+            <TextBlock Text="Score:"/>
+            <TextBlock Name="txtScore" Text="0"/>
+        </StackPanel>
+    </Grid>
+</Window>
